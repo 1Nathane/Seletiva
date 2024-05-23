@@ -1,0 +1,92 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.calculadora {
+  width: 400px;
+  background-color: #d3d3d3;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+  background-color: #333;
+  color: white;
+  font-size: 2em;
+  text-align: right;
+  padding: 40px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 60px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.botoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 20px;
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition:
+    background-color 0.3s,
+    transform 0.1s;
+}
+
+.numero {
+  background-color: black;
+  color: white;
+}
+
+.numero:hover {
+  background-color: #444;
+}
+.numero:active {
+  transform: scale(0.95);
+}
+
+.operador {
+  background-color: purple;
+  color: white;
+}
+
+.operador:hover {
+  background-color: #5a2a8b;
+}
+
+.operador:active {
+  transform: scale(0.95);
+}
+
+.igual {
+  background-color: green;
+  color: white;
+  grid-column: span 4;
+}
+
+.igual:hover {
+  background-color: #006400;
+}
+
+.igual:active {
+  transform: scale(0.95);
+}

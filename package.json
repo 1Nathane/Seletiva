@@ -2,10 +2,15 @@
   "name": "seletiva",
   "version": "1.0.0",
   "description": "Programa utilizado para processo seletivo de desenvolvedores",
-  "main": "App.js",
+  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "9.3.0",
+    "json-server": "0.17.4",
+    "prettier": "3.0.3"
+  }
 }
