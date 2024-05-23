@@ -78,13 +78,13 @@ body {
 }
 
 .igual {
-  background-color: green;
+  background-color: rgb(3, 112, 255);
   color: white;
   grid-column: span 4;
 }
 
 .igual:hover {
-  background-color: #006400;
+  background-color: rgb(80, 145, 248);
 }
 
 .igual:active {
