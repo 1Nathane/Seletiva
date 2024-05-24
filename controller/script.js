@@ -20,19 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function adicionarOperador(operador) {
     if (display.innerText.length < TAMANHO_MAXIMO_DIPLAY) {
-      if (
-        /[/*+-]/.test(display.innerText.charAt(display.innerText.length - 1))
-      ) {
-        display.innerText = display.innerText.slice(0, -1) + operador;
-      } else {
-        if (!/[/*+-]/.test(display.innerText)) {
-          if (display.innerText.length === 0) {
-            display.innerText = "0" + operador;
-          } else {
-            display.innerText += operador;
-          }
-        }
-      }
+      display.innerText = tratarTextoParaReceberOperador(
+        display.innerText,
+        operador
+      );
+    }
+  }
+
+  function tratarTextoParaReceberOperador(texto, operador) {
+    if (/[/*+-]/.test(texto.charAt(texto.length - 1))) {
+      return texto.slice(0, -1) + operador;
+    }
+    if (texto.length === 0) {
+      return "0" + operador;
+    }
+
+    if (/[/*+-]/.test(texto)) {
+      return texto;
+    } else {
+      return texto + operador;
     }
   }
 
@@ -43,6 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       let resultado;
       let parcelas = display.innerText.split(/[/*+-]/);
+      let casasdecimais = 0;
+      if (parcelas[0].includes(".")) {
+        casasdecimais = quantidadeCasasDecimais(parcelas[0]);
+      }
+      if (parcelas[1].includes(".")) {
+        casasdecimais += quantidadeCasasDecimais(parcelas[1]);
+      }
 
       if (parcelas[1].length === 0 || parcelas[1] == ".") {
         parcelas[1] = 0;
@@ -64,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (resultado.toString().length > TAMANHO_MAXIMO_DIPLAY) {
         throw new Error("Tamanho display excedido");
       } else {
-        display.innerText = resultado.toString();
+        display.innerText = resultado.toFixed(casasdecimais).toString();
       }
     } catch (e) {
       display.innerText = e.message;
@@ -73,6 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function limpar() {
     display.innerText = "";
+  }
+
+  function quantidadeCasasDecimais(texto) {
+    return texto.split(".")[1].length;
   }
 
   window.adicionarNumero = adicionarNumero;
