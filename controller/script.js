@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const display = document.getElementById("display");
-
   const TAMANHO_MAXIMO_DIPLAY = 21;
 
   function adicionarNumero(numero) {
